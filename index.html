@@ -53,12 +53,17 @@
         .nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: var(--color-blue); text-decoration: none; }
         .logo span { color: var(--color-wine); }
-        .nav-list { list-style: none; display: flex; gap: 2.5rem; }
+        
+        /* --- CHANGE: Merged nav-actions into nav-list --- */
+        .nav-list { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-list a { text-decoration: none; color: var(--color-black); font-weight: 500; transition: color 0.3s; }
         .nav-list a:hover { color: var(--color-red); }
-        .nav-actions .btn { text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 500; transition: all 0.3s; }
+        
+        .nav-list .btn { text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 500; transition: all 0.3s; }
         .btn-primary { background-color: var(--color-blue); color: var(--color-white); border: 1px solid var(--color-blue); }
-        .btn-primary:hover { background-color: var(--color-wine); border-color: var(--color-wine); transform: translateY(-3px); }
+        .btn-primary:hover { background-color: var(--color-wine); border-color: var(--color-wine); color: var(--color-white); transform: translateY(-3px); }
+        /* ----------------------------------------------- */
+
         .hamburger { display: none; cursor: pointer; }
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--color-blue); transition: all 0.3s ease-in-out; }
 
@@ -86,7 +91,7 @@
         .model-card .icon { font-size: 3rem; color: var(--color-wine); background: #fdf2f2; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; }
         .model-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-blue); }
 
-        /* --- MISSION & VISION SECTION (NEW) --- */
+        /* --- MISSION & VISION SECTION --- */
         .mission-vision-section { padding: 6rem 0; background: var(--color-blue); color: var(--color-white); }
         .mission-vision-content { display: flex; gap: 4rem; justify-content: center; text-align: center; }
         .mission-vision-item { max-width: 500px; }
@@ -106,7 +111,7 @@
         .testimonial-card p { font-style: italic; margin-bottom: 0.5rem; }
         .testimonial-card span { font-weight: 700; font-style: normal; color: var(--color-black); }
 
-        /* --- COMMUNITY CTA SECTION (NEW w/ WHATSAPP LINK) --- */
+        /* --- COMMUNITY CTA SECTION --- */
         .community-section {
             padding: 5rem 1rem;
             text-align: center;
@@ -150,14 +155,28 @@
 
         /* --- RESPONSIVENESS --- */
         @media (max-width: 992px) {
-            .nav-list, .nav-actions { display: none; }
+            .nav-list { display: none; }
             .nav-menu.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-white); box-shadow: 0 10px 20px rgba(0,0,0,0.05); padding: 1rem 0; }
-            .nav-list.active { flex-direction: column; text-align: center; gap: 1rem; padding-bottom: 1.5rem; }
-            .nav-actions.active { flex-direction: column; text-align: center; gap: 1rem; padding: 0 10%; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee; padding-bottom: 1rem; }
+            .nav-list.active { display: flex; flex-direction: column; text-align: center; gap: 1rem; padding-bottom: 1.5rem; }
+            
+            /* --- CHANGE: Target last list item for mobile button spacing --- */
+            .nav-list.active li:last-child {
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+                padding-left: 10%;
+                padding-right: 10%;
+                border-top: 1px solid #eee;
+            }
+            .nav-list.active li:last-child .btn {
+                width: 100%;
+            }
+            /* ------------------------------------------------------------- */
+
             .hamburger { display: block; }
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
             .about-content, .why-us-content, .mission-vision-content { flex-direction: column; }
             .why-us-content .why-us-image { order: -1; }
             .contact-wrapper { flex-direction: column; }
@@ -180,11 +199,9 @@
                     <li><a href="#why-us">Why GHS?</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="auth.html" class="btn btn-primary">Get Started</a></li>
                 </ul>
-                <div class="nav-actions">
-                    <a href="auth.html" class="btn btn-primary">Get Started</a>
                 </div>
-            </div>
             <div class="hamburger">
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
@@ -192,7 +209,7 @@
     </header>
 
     <main>
-        <section class="gog-banner" data-aos="fade-in" data-aos-duration="1200">
+         <section class="gog-banner" data-aos="fade-in" data-aos-duration="1200">
             <div class="container">
                 <h1>The Gathering of Gileadites</h1>
                 <span class="location"><i class="fas fa-map-marker-alt"></i> HAPPENING LIVE IN ABUJA</span>
@@ -323,13 +340,13 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navList = document.querySelector('.nav-list');
-        const navActions = document.querySelector('.nav-actions');
-
+        // CHANGE: No longer need to select nav-actions separately
+        
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             navList.classList.toggle('active');
-            navActions.classList.toggle('active');
+            // CHANGE: No longer need to toggle nav-actions
         });
 
         // --- Header Scroll Effect ---
