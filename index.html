@@ -22,6 +22,7 @@
             --color-black: #1a1a1a;
             --color-white: #FFFFFF;
             --color-light-gray: #f9f9f9;
+            --color-dark-blue-tint: #14355e;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
         }
@@ -36,6 +37,7 @@
             overflow-x: hidden; /* Prevents horizontal scroll from animations */
         }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-family: var(--font-heading); font-size: 3rem; color: var(--color-blue); margin-bottom: 3rem; }
 
         /* --- HEADER & NAVIGATION --- */
         .header {
@@ -76,22 +78,62 @@
         }
         .btn-register:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
         
+        /* --- HYBRID MODEL SECTION --- */
+        .model-section { padding: 6rem 0; background: var(--color-light-gray); }
+        .model-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; text-align: center; }
+        .model-card { background: #fff; padding: 2.5rem 1.5rem; border-radius: 10px; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+        .model-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .model-card .icon { font-size: 3rem; color: var(--color-wine); background: #fdf2f2; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; }
+        .model-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-blue); }
+
+        /* --- MISSION & VISION SECTION (NEW) --- */
+        .mission-vision-section { padding: 6rem 0; background: var(--color-blue); color: var(--color-white); }
+        .mission-vision-content { display: flex; gap: 4rem; justify-content: center; text-align: center; }
+        .mission-vision-item { max-width: 500px; }
+        .mission-vision-item .icon { font-size: 3rem; color: #FFD700; margin-bottom: 1.5rem; }
+        .mission-vision-item h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; }
+        .mission-vision-item p { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us-section { padding: 6rem 0; }
+        .why-us-content { display: flex; align-items: center; gap: 4rem; }
+        .why-us-image { flex: 1; }
+        .why-us-image img { width: 100%; border-radius: 10px; }
+        .why-us-text { flex: 1; }
+        .why-us-text h2 { font-family: var(--font-heading); font-size: 2.8rem; color: var(--color-blue); margin-bottom: 1.5rem; }
+        .testimonial-cards { margin-top: 2rem; }
+        .testimonial-card { background: var(--color-light-gray); padding: 1.5rem; border-left: 4px solid var(--color-wine); border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+        .testimonial-card p { font-style: italic; margin-bottom: 0.5rem; }
+        .testimonial-card span { font-weight: 700; font-style: normal; color: var(--color-black); }
+
+        /* --- COMMUNITY CTA SECTION (NEW w/ WHATSAPP LINK) --- */
+        .community-section {
+            padding: 5rem 1rem;
+            text-align: center;
+            background-image: linear-gradient(to right, var(--color-dark-blue-tint), var(--color-wine));
+            color: var(--color-white);
+        }
+        .community-section h2 { font-family: var(--font-heading); font-size: 2.8rem; margin-bottom: 1rem; }
+        .community-section p { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.1rem; opacity: 0.9; }
+        .btn-whatsapp {
+            background: #25D366; color: white; text-decoration: none; padding: 0.8rem 2.5rem;
+            border-radius: 50px; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 0.7rem;
+        }
+        .btn-whatsapp:hover { transform: translateY(-5px) scale(1.05); background: #128C7E; }
+
         /* --- ABOUT US SECTION --- */
         .about-section { padding: 6rem 0; background: var(--color-light-gray); }
         .about-content { display: flex; gap: 4rem; align-items: center; }
         .about-image img { width: 100%; border-radius: 10px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .about-text h2 { font-family: var(--font-heading); font-size: 2.8rem; color: var(--color-blue); margin-bottom: 1.5rem; }
         .about-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; }
-        .founder-quote {
-            margin-top: 2rem; padding-left: 1.5rem; border-left: 4px solid var(--color-wine);
-            font-style: italic; font-size: 1.1rem;
-        }
+        .founder-quote { margin-top: 2rem; padding-left: 1.5rem; border-left: 4px solid var(--color-wine); font-style: italic; font-size: 1.1rem; }
         .founder-quote p { margin-bottom: 0.5rem; }
         .founder-quote span { font-weight: 700; font-style: normal; color: var(--color-black); }
 
         /* --- CONTACT SECTION --- */
         .contact-section { padding: 6rem 0; }
-        .section-title { text-align: center; font-family: var(--font-heading); font-size: 3rem; color: var(--color-blue); margin-bottom: 3rem; }
         .contact-wrapper { display: flex; gap: 3rem; background: #fff; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
         .contact-info { background: var(--color-blue); color: var(--color-white); padding: 3rem; flex: 1; }
         .contact-info h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; }
@@ -100,9 +142,7 @@
         .contact-form { padding: 3rem; flex: 1.5; }
         .contact-form h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; color: var(--color-black); }
         .form-group { margin-bottom: 1.5rem; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 1rem; border: 1px solid #ccc; border-radius: 5px; font-family: var(--font-body); font-size: 1rem;
-        }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 1px solid #ccc; border-radius: 5px; font-family: var(--font-body); font-size: 1rem; }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--color-blue); outline: none; box-shadow: 0 0 5px rgba(10, 38, 71, 0.2); }
         textarea { resize: vertical; }
         .btn-submit { width: 100%; padding: 1rem; font-size: 1.1rem; background-color: var(--color-red); color: white; border: none; cursor: pointer; transition: background-color 0.3s; }
@@ -112,19 +152,20 @@
         @media (max-width: 992px) {
             .nav-list, .nav-actions { display: none; }
             .nav-menu.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-white); box-shadow: 0 10px 20px rgba(0,0,0,0.05); padding: 1rem 0; }
-            .nav-list.active { flex-direction: column; text-align: center; gap: 1rem; padding-bottom: 1rem; }
-            .nav-actions.active { flex-direction: column; text-align: center; gap: 1rem; padding: 0 10%; }
+            .nav-list.active { flex-direction: column; text-align: center; gap: 1rem; padding-bottom: 1.5rem; }
+            .nav-actions.active { flex-direction: column; text-align: center; gap: 1rem; padding: 0 10%; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee; padding-bottom: 1rem; }
             .hamburger { display: block; }
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            .about-content { flex-direction: column; }
+            .about-content, .why-us-content, .mission-vision-content { flex-direction: column; }
+            .why-us-content .why-us-image { order: -1; }
             .contact-wrapper { flex-direction: column; }
         }
         @media (max-width: 576px) {
             .gog-banner h1 { font-size: 2.5rem; }
             .gog-banner .location { font-size: 1.2rem; }
-            .about-text h2, .section-title { font-size: 2.2rem; }
+            .section-title, .about-text h2, .why-us-text h2, .mission-vision-item h2, .community-section h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -135,8 +176,9 @@
             <a href="index.html" class="logo">Gileadites<span>HS</span></a>
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="#model">Our Model</a></li>
+                    <li><a href="#why-us">Why GHS?</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -150,12 +192,80 @@
     </header>
 
     <main>
-        <section class="gog-banner" data-aos="fade-in">
+        <section class="gog-banner" data-aos="fade-in" data-aos-duration="1200">
             <div class="container">
                 <h1>The Gathering of Gileadites</h1>
                 <span class="location"><i class="fas fa-map-marker-alt"></i> HAPPENING LIVE IN ABUJA</span>
                 <p>An unforgettable convocation of healthcare leaders, innovators, and practitioners. Join us for a powerful experience of professional growth, spiritual insight, and unparalleled networking.</p>
                 <a href="https://forms.cloud.microsoft/r/a1nYk3fQEq?origin=lprLink" target="_blank" class="btn-register">Secure Your Spot Now!</a>
+            </div>
+        </section>
+
+        <section id="model" class="model-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Our Hybrid Model</h2>
+                <div class="model-cards">
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon"><i class="fas fa-user-check"></i></div>
+                        <h3>Qualified Professionals</h3>
+                        <p>We provide reliable, thoroughly vetted healthcare staff for hospitals, clinics, and in-home care needs.</p>
+                    </div>
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon"><i class="fas fa-laptop-medical"></i></div>
+                        <h3>Innovative Technology</h3>
+                        <p>Access modern healthcare through our seamless digital platforms, telemedicine, and e-records.</p>
+                    </div>
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon"><i class="fas fa-handshake-angle"></i></div>
+                        <h3>Seamless Connection</h3>
+                        <p>We optimize patient care by powerfully integrating our technology with profound human expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-vision-section">
+            <div class="container mission-vision-content">
+                <div class="mission-vision-item" data-aos="fade-right">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h2>Our Mission</h2>
+                    <p>To provide highly qualified and reliable healthcare professionals and digital solutions to facilities, corporations, schools, and individuals across Nigeria, bridging the gap in healthcare worker shortages.</p>
+                </div>
+                <div class="mission-vision-item" data-aos="fade-left">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h2>Our Vision</h2>
+                    <p>To be the leading force in revolutionizing healthcare delivery in Nigeria through a commitment to high standards of patient care, professional integrity, and tech-driven efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="why-us-section">
+            <div class="container why-us-content">
+                <div class="why-us-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1579684385127-6f7E351f252e?q=80&w=1964&auto=format&fit=crop" alt="Doctor consulting with a patient">
+                </div>
+                <div class="why-us-text" data-aos="fade-left">
+                    <h2>Why Choose GHS?</h2>
+                    <p>We are more than a staffing agency; we are your strategic partner in delivering exceptional healthcare. Our rigorous vetting process, commitment to continuous training, and innovative platform ensure you receive unparalleled service and support.</p>
+                    <div class="testimonial-cards">
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                            <p>"GHS transformed our staffing process overnight. The quality of professionals is unmatched."</p>
+                            <span>- Dr. Adebayo, Lagos</span>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                             <p>"As a nurse, the flexibility and supportive community GHS provides are incredible. Truly career-changing."</p>
+                            <span>- Funmi C., Registered Nurse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-section" data-aos="zoom-in">
+            <div class="container">
+                <h2>Join Our Community: Gilead International</h2>
+                <p>Our mission extends beyond business. We host a vibrant community where health workers gather for continuous development—growing both medically and spiritually to serve with compassion and excellence.</p>
+                <a href="https://chat.whatsapp.com/H0EHJV90HGnADPevf3IEwo?mode=ems_copy_c" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Join on WhatsApp</a>
             </div>
         </section>
 
@@ -207,14 +317,19 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         // --- Initialize AOS ---
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1000, once: true, offset: 100 });
 
         // --- Hamburger Menu Logic ---
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        const navList = document.querySelector('.nav-list');
+        const navActions = document.querySelector('.nav-actions');
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+            navActions.classList.toggle('active');
         });
 
         // --- Header Scroll Effect ---
@@ -230,11 +345,9 @@
         // --- Contact Form Logic ---
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent actual form submission
-            const name = document.getElementById('name').value;
-            // You can add more validation here
-            
-            // Show a success message
+            e.preventDefault(); 
+            const nameInput = document.getElementById('name');
+            const name = nameInput.value;
             contactForm.innerHTML = `<h3 style="text-align:center; color: var(--color-blue);">Thank you, ${name}!<br>Your message has been sent.</h3>`;
         });
     </script>
